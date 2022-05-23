@@ -1,5 +1,3 @@
-set timezone = 'America/Chicago';
-
 create table if not exists data (
    id serial primary key,
    text1 varchar(50) not null,
