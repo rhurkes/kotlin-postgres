@@ -1,0 +1,20 @@
+---
+version: '3'
+
+networks:
+  shared:
+
+services:
+  postgres:
+    image: library/postgres:14.3
+    environment:
+      POSTGRES_USER: "test"
+      POSTGRES_PASSWORD: "test"
+    ports:
+      - "5432:5432"
+    networks:
+      shared:
+        aliases:
+          - postgres
+    volumes:
+      - ./src/main/resources/init:/docker-entrypoint-initdb.d
